@@ -2,7 +2,7 @@ import csv
 import pandas as pd
 import tensorflow as tf
 
-file = './2017_reduced.csv'
+file = './data/2017_reduced.csv'
 COLUMN_NAME = ['brithday', 'department',
                'adminssion-date', 'leave-date', 'details', 'results']
 train_data = pd.read_csv(file, names=COLUMN_NAME, header=0, encoding='GB2312')
