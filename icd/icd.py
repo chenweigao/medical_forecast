@@ -20,7 +20,7 @@ class ICD():
             if icd_data[:1] == self.label:
                 return icd_data[9:].strip()
 
-    def get_label(self):
+    def get_detail(self):
         for line in self.icd_file:
             label, detail = line.split(" ", 1)
             self.icd_dict[label[:1]] = detail.strip()
