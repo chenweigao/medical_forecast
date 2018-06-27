@@ -1,6 +1,8 @@
 class ICD():
-
-    icd_datas = open('icd.txt').readlines()
+    filepath = 'icd/icd.txt'
+    icd_file = open(filepath)
+    icd_datas = open(filepath).readlines()
+    icd_dict = {}
 
     def __init__(self, icd):
         self.icd = icd
@@ -17,3 +19,9 @@ class ICD():
         for icd_data in self.icd_datas:
             if icd_data[:1] == self.label:
                 return icd_data[9:].strip()
+
+    def get_label(self):
+        for line in self.icd_file:
+            label, detail = line.split(" ", 1)
+            self.icd_dict[label[:1]] = detail.strip()
+        return self.icd_dict[self.label]
